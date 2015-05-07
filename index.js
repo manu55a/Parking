@@ -72,7 +72,8 @@ function onNotificationGCM(e)
 
         case 'message':
             // NOTIFICACION!!! 
-            alert('message = ' + e.message + ' msgcnt = ' + e.msgcnt);
+            //alert('message = ' + e.message + ' msgcnt = ' + e.msgcnt);
+            alert(e.message);
             break;
 
         case 'error':
