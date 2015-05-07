@@ -58,7 +58,6 @@ function errorHandler(error)
 
 function onNotificationGCM(e)
 {
-    alert(e.event);
     switch (e.event)
     {
         case 'registered':
@@ -108,6 +107,7 @@ function registrar_servidor()
         var url = 'http://www.macle.com.ar/servergcm/registro.php?regId='+regId;
         //url=encodeURIComponent(url);
         var ref = window.open(url, '_blank', 'location=no');
+        ref.close();
     }
     else
     {
