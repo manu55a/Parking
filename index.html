@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 60%; margin: 2%; padding: 6% }
+      #map-canvas { height: 100% }
+    </style>
+
+    <title>Parking</title>
+    
+<!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>    
+
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    
+    <script type="text/javascript" charset="utf-8" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6LYglGPstG1CRRxblYWPRfV_AXRvy_AY&sensor=true"></script>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="index.js"></script>
+
+    <script type="text/javascript" src="PushNotification.js"></script>
+
+  </head>
+  <body>
+    <div class="page-header" style="padding:1%;">
+      <h1>Parking m&oacute;vil</h1>
+    </div>
+
+    <div id="general">
+
+    <div id="geolocaliza" style="padding:1%;"></div>
+
+    <div id="geograba"></div>
+
+    <div id="redes"></div>
+
+    <div>
+      <button class="btn btn-default" onclick="checkConnection();">Red
+         <span class="glyphicon glyphicon-signal" aria-hidden="true"></span>
+      </button>
+  
+      <button class="btn btn-default" onclick="gps();">Geo
+         <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+      </button>
+      
+      <button class="btn btn-default" onclick="capturePhoto();">Foto
+         <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+      </button>
+
+      <button class="btn btn-default" onclick="log();">Log
+         <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+      </button>
+
+      <button class="btn btn-default" onclick="linterna();">
+         <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+      </button>
+
+      <button class="btn btn-default" onclick="reggcm();">
+         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+      </button>
+
+    </div>
+<!--
+    <button onclick="capturePhotoEdit();">Capturar Foto y editarla</button> <br>
+    <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Desde la librería de Fotos</button><br>
+    <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">Desde el alum de Fotos</button><br>
+-->
+    <img style="display:none;width:150px;height:150px;" id="smallImage" src="" />
+<!--
+    <img style="display:none;width:300px;height:300px;" id="largeImage" src="" />
+-->
+    </div>
+    
+    <div id="map-canvas"></div>
+  </body>
+</html>
