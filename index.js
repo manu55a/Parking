@@ -58,7 +58,31 @@ function errorHandler(error)
 
 function onNotificationGCM(e)
 {
-    alert(e.event);
+    switch (e.event)
+    {
+        case 'registered':
+            if (e.regid.length > 0)
+            {
+                //console.log("Regid " + e.regid);
+                alert('Registration ID = ' + e.regid);
+                //Cuando se registre le pasamos el regid al input 
+                //document.getElementById('regId').value = e.regid;
+            }
+            break;
+
+        case 'message':
+            // NOTIFICACION!!! 
+            alert('message = ' + e.message + ' msgcnt = ' + e.msgcnt);
+            break;
+
+        case 'error':
+            alert('GCM error = ' + e.msg);
+            break;
+
+        default:
+            alert('An unknown GCM event has occurred');
+            break;
+    }
 }
 
 function reggcm()
@@ -66,11 +90,11 @@ function reggcm()
     alert('Antes del Registro GCM');
     var pushNotification = window.plugins.pushNotification;
     if (device.platform == 'android' || device.platform == 'Android') {
-        alert("Register called");
+        alert("Llamada al registro");
         pushNotification.register(successHandler, errorHandler, {"senderID": "44145671782", "ecb": "onNotificationGCM"});
     }
     else {
-        alert("Register called");
+        alert("Llamada al registro");
         pushNotification.register(successHandler, errorHandler, {"badge": "true", "sound": "true", "alert": "true", "ecb": "onNotificationAPN"});
     }
 }
