@@ -66,7 +66,7 @@ function onNotificationGCM(e)
                 //console.log("Regid " + e.regid);
                 alert('Registration ID = ' + e.regid);
                 //Cuando se registre le pasamos el regid al input 
-                //document.getElementById('regId').value = e.regid;
+                document.getElementById('regId').value = e.regid;
             }
             break;
 
@@ -87,7 +87,6 @@ function onNotificationGCM(e)
 
 function reggcm()
 {
-    alert('Antes del Registro GCM');
     var pushNotification = window.plugins.pushNotification;
     if (device.platform == 'android' || device.platform == 'Android') {
         alert("Llamada al registro");
@@ -96,6 +95,19 @@ function reggcm()
     else {
         alert("Llamada al registro");
         pushNotification.register(successHandler, errorHandler, {"badge": "true", "sound": "true", "alert": "true", "ecb": "onNotificationAPN"});
+    }
+}
+
+function registrar_servidor()
+{
+    var regId = document.getElementById('regId').value;
+    if (regId != "") {
+        //Enviamos los datos al servidor php 
+        document.formulario.submit();
+    }
+    else
+    {
+        alert('Esperando el regId del registro en GCM!');
     }
 }
 // FIN Notificaciones vía GCM con pushplugin
