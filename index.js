@@ -106,7 +106,7 @@ function registrar_servidor()
         //Enviamos los datos al servidor php 
         //document.formulario.submit();
         var url = 'http://www.macle.com.ar/servergcm/registro.php?regId='+regId;
-        url=encodeURIComponent(url);
+        //url=encodeURIComponent(url);
         var ref = window.open(url, '_blank', 'location=no');
     }
     else
