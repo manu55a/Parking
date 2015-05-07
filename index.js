@@ -37,51 +37,6 @@ function onDeviceReady()
      
      
      */
-// Notificaciones vía GCM con pushplugin
-//--------------------------------------
-
-
-// result contains any message sent from the plugin call
-    /*successHandler: function(result) {
-     alert('Callback Success! Result = ' + result)
-     },
-     errorHandler:function(error) {
-     alert(error);
-     }*/
-
-    /*
-     onNotificationGCM: function(e) {
-     switch( e.event )
-     {
-     case 'registered':
-     if ( e.regid.length > 0 )
-     {
-     console.log("Regid " + e.regid);
-     alert('registration id = '+e.regid);
-     }
-     break;
-     
-     case 'message':
-     // this is the actual push notification. its format depends on the data model from the push server
-     alert('message = '+e.message+' msgcnt = '+e.msgcnt);
-     break;
-     
-     case 'error':
-     alert('GCM error = '+e.msg);
-     break;
-     
-     default:
-     alert('An unknown GCM event has occurred');
-     break;
-     }
-     }
-     */
-//--------------------------------------
-
-
-
-
-
 }
 
 // Log de estacionamientos
@@ -89,12 +44,38 @@ function log() {
     var ref = window.open('http://www.macle.com.ar/parking/verpar.php', '_blank', 'location=no');
 }
 
+// Notificaciones vía GCM con pushplugin
+//-------------------------------------------
+function successHandler(result)
+{
+    alert('Callback Success! Result = ' + result);
+}
+
+function errorHandler(error)
+{
+    alert(error);
+}
+
+function onNotificationGCM(e)
+{
+    alert(e.event);
+}
+
 function reggcm()
 {
-    //var pushNotification = window.plugins.pushNotification;
-    //pushNotification.register(app.successHandler, app.errorHandler, {"senderID": "5048785381", "ecb": "app.onNotificationGCM"});
-    alert('Click');
+    alert('Antes del Registro GCM');
+    var pushNotification = window.plugins.pushNotification;
+    if (device.platform == 'android' || device.platform == 'Android') {
+        alert("Register called");
+        pushNotification.register(successHandler, errorHandler, {"senderID": "44145671782", "ecb": "onNotificationGCM"});
+    }
+    else {
+        alert("Register called");
+        pushNotification.register(successHandler, errorHandler, {"badge": "true", "sound": "true", "alert": "true", "ecb": "onNotificationAPN"});
+    }
 }
+// FIN Notificaciones vía GCM con pushplugin
+//-------------------------------------------
 
 // linterna on/off
 function linterna() {
