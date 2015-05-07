@@ -43,6 +43,7 @@ function onDeviceReady()
     {
         var pushNotification = window.plugins.pushNotification;
         pushNotification.register(app.successHandler, app.errorHandler, {"senderID": "5048785381", "ecb": "app.onNotificationGCM"});
+        alert('Click');
     }
 
 // result contains any message sent from the plugin call
