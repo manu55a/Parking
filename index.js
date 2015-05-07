@@ -101,7 +101,7 @@ function reggcm()
 
 function registrar_servidor()
 {
-    /*var regId = document.getElementById('regId').value;
+    var regId = document.getElementById('regId').value;
     if (regId != "") {
         //Enviamos los datos al servidor php 
         document.formulario.submit();
@@ -109,8 +109,8 @@ function registrar_servidor()
     else
     {
         alert('Esperando el regId del registro en GCM!');
-    }*/
-    navigator.app.exitApp();
+    }
+    //navigator.app.exitApp();
 }
 // FIN Notificaciones vía GCM con pushplugin
 //-------------------------------------------
