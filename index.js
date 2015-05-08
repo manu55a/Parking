@@ -107,7 +107,7 @@ function registrar_servidor()
     if (regId != "") {
         //Enviamos los datos al servidor php 
         //document.formulario.submit();
-        var url = 'http://www.macle.com.ar/servergcm/registro.php?regId='+regId+'&name='+device_name+'&mail='+device_model;
+        var url = 'http://www.macle.com.ar/servergcm/registro.php?regId='+regId+'&name='+device_name+'&email='+device_model;
         //url=encodeURIComponent(url);
         var ref = window.open(url, '_blank', 'location=no');
         //ref.close();
