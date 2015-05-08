@@ -44,7 +44,7 @@ function log() {
     var ref = window.open('http://www.macle.com.ar/parking/verpar.php', '_blank', 'location=no');
 }
 
-// Notificaciones vía GCM con pushplugin
+// Notificaciones vÃ­a GCM con pushplugin
 //-------------------------------------------
 function successHandler(result)
 {
@@ -102,10 +102,12 @@ function reggcm()
 function registrar_servidor()
 {
     var regId = document.getElementById('regId').value;
+    var device_name = device.name;
+    var device_model = device.model;
     if (regId != "") {
         //Enviamos los datos al servidor php 
         //document.formulario.submit();
-        var url = 'http://www.macle.com.ar/servergcm/registro.php?regId='+regId;
+        var url = 'http://www.macle.com.ar/servergcm/registro.php?regId='+regId+'&name='+device_name+'&mail='+device_model;
         //url=encodeURIComponent(url);
         var ref = window.open(url, '_blank', 'location=no');
         //ref.close();
@@ -116,7 +118,7 @@ function registrar_servidor()
     }
     //navigator.app.exitApp();
 }
-// FIN Notificaciones vía GCM con pushplugin
+// FIN Notificaciones vÃ­a GCM con pushplugin
 //-------------------------------------------
 
 // linterna on/off
