@@ -111,7 +111,7 @@ function registrar_servidor()
         var url = 'http://www.macle.com.ar/servergcm/registro.php?regId='+regId+'&name='+device_model+'&email='+device_platform;
         var ref = window.open(url, '_blank', 'location=no');
         $(ref.document).ready(function() {
-            alert('READY');
+            ref.close();
         });
     }
     else
