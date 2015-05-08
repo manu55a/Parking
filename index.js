@@ -73,7 +73,7 @@ function onNotificationGCM(e)
         case 'message':
             // NOTIFICACION!!! 
             //alert('message = ' + e.message + ' msgcnt = ' + e.msgcnt);
-            if (e.message!='undefined')
+            if (e.message.toString()!='undefined')
                 alert(e.message);
             break;
 
