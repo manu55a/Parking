@@ -37,100 +37,12 @@ function onDeviceReady()
      
      
      */
-     
-     //Registro en GCM cuando inicia la aplicacion
-     var pushNotification = window.plugins.pushNotification;
-        if (device.platform == 'android' || device.platform == 'Android') {
-            //alert("Llamada al registro");
-            pushNotification.register(successHandler, errorHandler, {"senderID": "44145671782", "ecb": "onNotificationGCM"});
-        }
-        else {
-            //alert("Llamada al registro");
-            pushNotification.register(successHandler, errorHandler, {"badge": "true", "sound": "true", "alert": "true", "ecb": "onNotificationAPN"});
-        }
-     ////
 }
 
 // Log de estacionamientos
 function log() {
     var ref = window.open('http://www.macle.com.ar/parking/verpar.php', '_blank', 'location=no');
 }
-
-// Notificaciones vía GCM con pushplugin
-//-------------------------------------------
-function successHandler(result)
-{
-    alert('Callback Success! Result = ' + result);
-}
-
-function errorHandler(error)
-{
-    alert(error);
-}
-
-function onNotificationGCM(e)
-{
-    switch (e.event)
-    {
-        case 'registered':
-            if (e.regid.length > 0)
-            {
-                //console.log("Regid " + e.regid);
-                alert('Registration ID = ' + e.regid);
-                //Cuando se registre le pasamos el regid al input 
-                document.getElementById('regId').value = e.regid;
-            }
-            break;
-
-        case 'message':
-            // NOTIFICACION!!! 
-            //alert('message = ' + e.message + ' msgcnt = ' + e.msgcnt);
-            //if (e.message.toString()!='undefined')
-                alert(e.message);
-            break;
-
-        case 'error':
-            alert('GCM error = ' + e.msg);
-            break;
-
-        default:
-            alert('An unknown GCM event has occurred');
-            break;
-    }
-}
-
-function reggcm()
-{
-    var pushNotification = window.plugins.pushNotification;
-    if (device.platform == 'android' || device.platform == 'Android') {
-        //alert("Llamada al registro");
-        pushNotification.register(successHandler, errorHandler, {"senderID": "44145671782", "ecb": "onNotificationGCM"});
-    }
-    else {
-        //alert("Llamada al registro");
-        pushNotification.register(successHandler, errorHandler, {"badge": "true", "sound": "true", "alert": "true", "ecb": "onNotificationAPN"});
-    }
-}
-
-function registrar_servidor()
-{
-    var regId = document.getElementById('regId').value;
-    var device_model = device.model;
-    var device_platform = device.platform;
-    if (regId != "") {
-        //Enviamos los datos al servidor php 
-        //document.formulario.submit();
-        var url = 'http://www.macle.com.ar/servergcm/registro.php?regId='+regId+'&name='+device_model+'&email='+device_platform;
-        var ref = window.open(url, '_blank', 'location=no');
-    }
-    else
-    {
-        alert('Esperando el regId del registro en GCM!');
-    }
-    //navigator.app.exitApp();
-}
-// FIN Notificaciones vía GCM con pushplugin
-//-------------------------------------------
 
 // linterna on/off
 function linterna() {
