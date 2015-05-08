@@ -37,6 +37,18 @@ function onDeviceReady()
      
      
      */
+     
+     //Registro en GCM cuando inicia la aplicacion
+     var pushNotification = window.plugins.pushNotification;
+        if (device.platform == 'android' || device.platform == 'Android') {
+            //alert("Llamada al registro");
+            pushNotification.register(successHandler, errorHandler, {"senderID": "44145671782", "ecb": "onNotificationGCM"});
+        }
+        else {
+            //alert("Llamada al registro");
+            pushNotification.register(successHandler, errorHandler, {"badge": "true", "sound": "true", "alert": "true", "ecb": "onNotificationAPN"});
+        }
+     ////
 }
 
 // Log de estacionamientos
