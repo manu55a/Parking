@@ -69,6 +69,7 @@
     <gap:plugin name="de.appplant.cordova.plugin.local-notification" />
     <gap:plugin name="de.appplant.cordova.plugin.background-mode" />
     <gap:plugin name="com.phonegap.plugins.pushplugin" />
+    <gap:plugin name="com.millerjames01.sqlite-plugin" version="1.0.1" />
 
     <!-- Third party plugins -->
     <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
