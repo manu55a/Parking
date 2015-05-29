@@ -50,6 +50,17 @@ function linterna() {
 //        window.plugins.pinDialog.prompt("Te gusto mi linterna?", callback, "Linterna", ["Claro que si","No"]);    
 }
 
+// prueba sqlite
+function sqlite() {
+    var db = window.sqlitePlugin.openDatabase({name: "prueba.db"});
+    db.transaction(function(tx) {
+        tx.executeSql("INSERT INTO usuarios(nombre) VALUES ('mariano')");
+
+        }, function(e) {
+          console.log("ERROR: " + e.message);
+        });
+}
+
 function notifica() {
     window.plugin.notification.badge.set(1);
     navigator.vibrate([500]);
